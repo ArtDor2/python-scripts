@@ -1,2 +1,5 @@
 # book-ranamer
-renames book files without extensions to have extensions
+Renames book files without extensions to have extensions.
+
+Dependencies:
+import magic # pip install python-magic
