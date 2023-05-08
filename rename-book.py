@@ -1,4 +1,4 @@
-import magic
+import magic # pip install python-magic
 import os
 import shutil
 
@@ -37,6 +37,7 @@ def process_directory(directory_path, files_to_rename):
         file_path = os.path.join(directory_path, filename)
 
         if os.path.isfile(file_path):
+            print(f"Processing file: {filename}")
             file_type, new_file_path = add_extension(file_path)
 
             if new_file_path:
@@ -48,7 +49,7 @@ def process_directory(directory_path, files_to_rename):
     return files_to_rename
 
 def display_files_to_rename(files_to_rename):
-    print("Files to be renamed:")
+    print("\nFiles to be renamed:")
     for old_file_path, new_file_path in files_to_rename:
         print(f"{os.path.basename(old_file_path)} -> {os.path.basename(new_file_path)}")
 
@@ -67,7 +68,7 @@ files_to_rename = process_directory(directory_path, files_to_rename)
 display_files_to_rename(files_to_rename)
 
 # Ask for confirmation and rename files if confirmed
-user_input = input("Rename all files? (y/n): ").lower()
+user_input = input("\nRename all files? (y/n): ").lower()
 if user_input == 'y':
     rename_files(files_to_rename)
 elif user_input == 'n':
