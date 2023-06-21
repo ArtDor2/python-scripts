@@ -1,0 +1,155 @@
+# disable swap - to prevent freezing and stuttering?
+swapon --show
+sudo swapoff -a
+
+
+# safer reduce swap:
+sudo gedit /etc/sysctl.conf
+
+# add this line
+vm.swappiness=1
+
+
+# mod user permissions
+sudo chmod 777 /tmp/ramdisk
+
+
+# make directory
+mkdir
+
+
+# ssh
+ssh user@ipaddress
+
+
+# ai whisper
+python3 transcriber.py -u, --url https://youtu.be/TIt25TEel3g
+
+
+# pip
+pip install git+https://github.com/openai/whisper.git
+
+
+# git
+git clone url
+
+
+# file management
+forward:
+cd
+
+# up dir:
+cd ..
+
+# home:
+cd ~
+
+#mounting folders nfs
+#unmount all:
+sudo umount -a
+
+sudo umount path
+sudo mount -a
+systemctl daemon-reload
+
+# reload mounts:
+systemctl daemon-reload
+
+
+# check?
+df -h
+
+
+# ip
+# get ip:
+ip address
+
+# ping:
+ping ip
+
+
+# open with kate
+kate /etc/fstab
+
+
+# ssd trim enable (disabled by default in manjaro)
+# https://forum.manjaro.org/t/why-is-ssd-trim-disabled-by-default/36145
+
+# check status:
+sudo systemctl status fstrim.timer
+
+# enable:
+systemctl enable --now fstrim.timer
+
+
+
+# power management
+systemctl reboot
+reboot
+poweroff
+shutdown
+
+
+# mod permissions
+chmod -R 777 ./
+
+
+# print text from file in terminal:
+cat /etc/fstab
+
+
+# launch java jar app from terminal
+cd directory ; java -jar /home/user/Documents/apps/ripme/javaapp.jar
+
+
+# truenas increase ram cache (need to run after every reboot)
+echo 229055800320 >> /sys/module/zfs/parameters/zfs_arc_max
+
+
+# firefox hide tab bar
+# Here is how i hid the tab bar and titlebar on linux:
+# https://medium.com/@Aenon/firefox-hide-native-tabs-and-titlebar-f0b00bdbb88b
+# for hiding the title bar in toolbar customization on the bottom disable title bar.
+
+
+#####################
+
+audio
+pipewire
+check if using pipewire
+ps -e | grep pipewire
+	manjaro:
+		1148 ?        00:00:00 pipewire
+		1150 ?        00:00:00 pipewire-media-
+
+inxi -A
+	manjaro
+		Audio:
+			Device-1: AMD Navi 21/23 HDMI/DP Audio driver: snd_hda_intel
+			Device-2: AMD Starship/Matisse HD Audio driver: snd_hda_intel
+			Device-3: BEHRINGER GmbH UMC1820 type: USB driver: snd-usb-audio
+			Sound API: ALSA v: k5.15.74-3-MANJARO running: yes
+			Sound Server-1: PulseAudio v: 16.1 running: yes
+			Sound Server-2: PipeWire v: 0.3.58 running: yes
+
+pactl info
+	manjaro
+		Server String: /run/user/1000/pulse/native
+		Library Protocol Version: 35
+		Server Protocol Version: 35
+		Is Local: yes
+		Client Index: 29
+		Tile Size: 65472
+		User Name: art
+		Host Name: art-d9
+		Server Name: pulseaudio
+		Server Version: 16.1
+		Default Sample Specification: s16le 2ch 44100Hz
+		Default Channel Map: front-left,front-right
+		Default Sink: alsa_output.usb-BEHRINGER_UMC1820_C8538F9C-00.multichannel-output
+		Default Source: alsa_output.usb-BEHRINGER_UMC1820_C8538F9C-00.multichannel-output.monitor
+		Cookie: 77ce:3295
+
+In Manjaro, you should have simply install manjaro-pipewire package to replace pulseaudio with pipewire.
+	https://najigram.com/2022/07/install-pipewire-and-enable-noise-canceling-in-manjaro-kde/
+

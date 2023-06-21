@@ -1,0 +1,2 @@
+# parallel rsync bash script, using "parallel" package, j100 = 100 threads
+cd /source && find . -type f -print0 | parallel -0 -j100 -I {} rsync -avPu --progress --relative {} /destination/
